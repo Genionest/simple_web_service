@@ -1,0 +1,13 @@
+curl -x POST \
+    -H "Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDAyNjkyNzksInVzZXJuYW1lIjoiaW5rIn0.KwnpuD2U-rR8tVtK2joZO1VKD_Yf4MRoWlpPgMXGXzk" \
+    -d '{"title":"标题1","content":"文本1","preview":"预览1"}' \
+    localhost:3000/api/articles
+
+curl \
+    -H "Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDAyNjkyNzksInVzZXJuYW1lIjoiaW5rIn0.KwnpuD2U-rR8tVtK2joZO1VKD_Yf4MRoWlpPgMXGXzk" \
+    localhost:3000/api/articles
+
+curl -x POST \
+    -H "Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDAyNjkyNzksInVzZXJuYW1lIjoiaW5rIn0.KwnpuD2U-rR8tVtK2joZO1VKD_Yf4MRoWlpPgMXGXzk" \
+    -d "" \
+    localhost:3000/api/articles/3/like

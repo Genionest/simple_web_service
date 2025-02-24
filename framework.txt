@@ -1,0 +1,63 @@
+gin
+viper(config)
+gorm
+mvc
+hash
+jwt
+
+
+根据提供的 `article_controller.go` 文件内容，以下是该文件中定义的 API 接口结构文档：
+
+### 1. 创建文章 (CreateArticle)
+
+- **请求路径**: `/articles`
+- **请求方法**: `POST`
+- **请求参数**:
+  - `body`: JSON 格式的文章数据
+    ```json
+    {
+      "title": "string",
+      "content": "string",
+      // 其他字段根据 models.Article 定义
+    }
+    ```
+- **响应**:
+  - **成功**:
+    - 状态码: `201 Created`
+    - 响应体: 新创建的文章对象
+  - **失败**:
+    - 状态码: `400 Bad Request` (请求体解析错误)
+    - 状态码: `500 Internal Server Error` (数据库操作失败)
+
+### 2. 获取所有文章 (GetArticles)
+
+- **请求路径**: `/articles`
+- **请求方法**: `GET`
+- **请求参数**: 无
+- **响应**:
+  - **成功**:
+    - 状态码: `200 OK`
+    - 响应体: 文章列表数组
+  - **失败**:
+    - 状态码: `500 Internal Server Error` (数据库查询失败)
+
+### 3. 根据 ID 获取文章 (GetArticleByID)
+
+- **请求路径**: `/articles/:id`
+- **请求方法**: `GET`
+- **请求参数**:
+  - `path`: 
+    - `id`: 文章的唯一标识符
+- **响应**:
+  - **成功**:
+    - 状态码: `200 OK`
+    - 响应体: 文章对象
+  - **失败**:
+    - 状态码: `404 Not Found` (未找到对应 ID 的文章)
+    - 状态码: `500 Internal Server Error` (数据库查询失败)
+
+### 注意事项
+
+- 所有接口均使用 Gin 框架处理 HTTP 请求。
+- 数据库操作通过 GORM 实现，全局数据库实例为 `global.DB`。
+- 错误处理返回详细的错误信息，并附带相应的 HTTP 状态码。
